@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'WelcomeLite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'welcomedb',
+        'NAME': 'welcometestdb',
         'USER': 'testuser',
         'PASSWORD': 'secret',
         'HOST': '127.0.0.1',
