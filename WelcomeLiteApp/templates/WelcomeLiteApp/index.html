@@ -11,15 +11,15 @@
             <th>Offer Amount</th>
         </tr>
         
-    {% for offer in job_offer_list %}
+    {% for job_offer in job_offer_list %}
         <tr>
-            <td>{{ offer.candidate_first_name }}</td>
-            <td>{{ offer.candidate_last_name }}</td>
-            <td>{{ offer.candidate_email }}</td>
-            <td>{{ offer.job_title }}</td>
-            <td>{{ offer.offer_amount }}</td>
-            <td><span><button>Edit</button></span></td>
-            <td><span><button>Delete</button></span></td>
+            <td>{{ job_offer.candidate_first_name }}</td>
+            <td>{{ job_offer.candidate_last_name }}</td>
+            <td>{{ job_offer.candidate_email }}</td>
+            <td>{{ job_offer.job_title }}</td>
+            <td>{{ job_offer.offer_amount }}</td>
+            <td><span><a href="{% url 'welcome:edit' job_offer.id %}">Edit</a></span></td>
+            <td><span><a href="{% url 'welcome:delete' job_offer.id %}">Delete</a></span></td>
         </tr>
         
     {% endfor %}
@@ -28,4 +28,4 @@
 {% else %}
 <p>No job offers available</p>
 {% endif %}
-<div style="float: right;"><button>Create Offer</button></div>
+<div><a href="{% url 'welcome:add' %}">Create Offer</a></div>
