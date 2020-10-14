@@ -1,4 +1,5 @@
 /.vscode/
+/.DS_Store
 /welcome-lite-venv/
 __pycache__
 /db.sqlite3
