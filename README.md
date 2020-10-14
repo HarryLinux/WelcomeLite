@@ -1,2 +1,5 @@
 # WelcomeLite
-A Basic CRUD Django App
+A Basic CRUD Django App using:
+PostgreSQL
+Docker
+Bootstrap
