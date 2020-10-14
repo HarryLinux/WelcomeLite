@@ -1,0 +1,25 @@
+<h1>Job Offers List</h1>
+{% if job_offer_list %}
+    <table>
+        <tr>
+            <th>Candidate's First Name</th>
+            <th>Candidate's Last Name</th>
+            <th>Candidate's Email</th>
+            <th>Job Title</th>
+            <th>Offer Amount</th>
+        </tr>
+        
+    {% for offer in job_offer_list %}
+        <tr>
+            <td>{{ offer.candidate_first_name }}</td>
+            <td>{{ offer.candidate_last_name }}</td>
+            <td>{{ offer.candidate_email }}</td>
+            <td>{{ offer.job_title }}</td>
+            <td>{{ offer.offer_amount }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No job offers available</p>
+{% endif %}
+    
