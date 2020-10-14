@@ -1,5 +1,7 @@
 <h1>Job Offers List</h1>
+
 {% if job_offer_list %}
+<div>
     <table>
         <tr>
             <th>Candidate's First Name</th>
@@ -16,10 +18,14 @@
             <td>{{ offer.candidate_email }}</td>
             <td>{{ offer.job_title }}</td>
             <td>{{ offer.offer_amount }}</td>
+            <td><span><button>Edit</button></span></td>
+            <td><span><button>Delete</button></span></td>
         </tr>
+        
     {% endfor %}
     </table>
+</div>
 {% else %}
-    <p>No job offers available</p>
+<p>No job offers available</p>
 {% endif %}
-    
+<div style="float: right;"><button>Create Offer</button></div>

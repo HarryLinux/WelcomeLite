@@ -1,17 +1,18 @@
-# from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 from .models import JobOffer
 
 def index(request):
     job_offer_list = JobOffer.objects.all()
-    template = loader.get_template('WelcomeLiteApp/index.html')
     context = { 'job_offer_list': job_offer_list }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'WelcomeLiteApp/index.html', context)
 
 def add_offer(request):
     return HttpResponse("We made it to the add offers page!")
 
-def edit_offer(request):
-    return HttpResponse("Another page for editing offers")
+def edit_offer(request, job_offer_id):
+    return HttpResponse("You're editing offer %s" % job_offer_id)
+
+def delete_offer(request, job_offer_id):
+    return HttpResponse("You're deleting offer %s" % job_offer_id)
