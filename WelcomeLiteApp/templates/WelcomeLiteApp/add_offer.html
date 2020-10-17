@@ -1,7 +1,12 @@
-<h1>Create Offer</h1>
+{% extends 'WelcomeLiteApp/base.html' %}
 
+
+{% block content %}
+<h2>Create Offer</h2>
+<p>We will show Django form to implement CRUD operations</p>
 <form method="post">
     {% csrf_token %}
 
     <button type="submit">Create</button>
 </form>
+{% endblock content %}

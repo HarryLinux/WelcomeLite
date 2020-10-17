@@ -1,7 +1,11 @@
-<h1>Edit Offer</h1>
+{% extends 'WelcomeLiteApp/base.html' %}
+
+{% block content %}
+<h2>Edit Offer</h2>
 <h3>{{ job_offer }}</h3>
 <form method="post">
     {% csrf_token %}
 
     <button type="submit">Save</button>
 </form>
+{% endblock content %}

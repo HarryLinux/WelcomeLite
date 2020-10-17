@@ -1,4 +1,8 @@
-<h1>Job Offers List</h1>
+{% extends 'WelcomeLiteApp/base.html' %}
+
+
+{% block content %}
+<h2>Job Offers List</h2>
 
 {% if job_offer_list %}
 <div>
@@ -29,3 +33,4 @@
 <p>No job offers available</p>
 {% endif %}
 <div><a href="{% url 'welcome:add' %}">Create Offer</a></div>
+{% endblock content %}
