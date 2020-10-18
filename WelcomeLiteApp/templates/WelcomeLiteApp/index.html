@@ -1,9 +1,20 @@
 {% extends 'WelcomeLiteApp/base.html' %}
 
-
 {% block content %}
 <h2>Job Offers List</h2>
-
+<!-- Deletion Success Message -->
+{% if success_message %}
+<div class="alert alert-primary" role="alert">
+    {{ success_message }}
+</div>
+{% endif %}
+<!-- Deletion Error Message -->
+{% if error_message %}
+<div class="alert alert-danger" role="alert">
+    {{ error_message }}
+</div>
+{% endif %}
+<!-- Job Offer List Table -->
 {% if job_offer_list %}
 <div>
     <table class="table">
@@ -17,21 +28,31 @@
                 <th colspan="2"><a href="{% url 'welcome:add' %}" class="btn btn-outline-success"><i class="fas fa-plus"></i> Create</a></th>
             </tr>
         </thead>
-        
-    {% for job_offer in job_offer_list %}
-        <tr>
-            <td>{{ job_offer.candidate_first_name }}</td>
-            <td>{{ job_offer.candidate_last_name }}</td>
-            <td>{{ job_offer.candidate_email }}</td>
-            <td>{{ job_offer.job_title }}</td>
-            <td>{{ job_offer.offer_amount }}</td>
-            <td><a href="{% url 'welcome:edit' job_offer.id %}" class="btn text-secondary px-0"><i class="far fa-edit fa-lg"></i></a></td>
-            <td><span><a href="{% url 'welcome:delete' job_offer.id %}">Delete</a></span></td>
-        </tr>
-        
-    {% endfor %}
+        <tbody>
+            {% for job_offer in job_offer_list %}
+            <tr>
+                <td>{{ job_offer.candidate_first_name }}</td>
+                <td>{{ job_offer.candidate_last_name }}</td>
+                <td>{{ job_offer.candidate_email }}</td>
+                <td>{{ job_offer.job_title }}</td>
+                <td>{{ job_offer.offer_amount }}</td>
+                <td>
+                    <a href="{% url 'welcome:edit' job_offer.id %}" class="btn text-secondary px-0"><i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <!-- POST Form for delete route  -->
+                    <form action="{% url 'welcome:delete' job_offer.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
+<!-- Else if no Job Offers available -->
 {% else %}
 <p>No job offers available</p>
 {% endif %}

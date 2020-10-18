@@ -34,15 +34,24 @@ def add_offer(request, job_offer_id=0):
 
 def delete_offer(request, job_offer_id):
     # if job offer does not exist, return to index with error message
-    # else, delete job offer and return to index
+    # else, delete job offer and return to index with success message
     try:
-        job_offer = get_object_or_404(JobOffer, pk=job_offer_id)
+        job_offer = JobOffer.objects.get(pk=job_offer_id)
     except (KeyError, JobOffer.DoesNotExist):
-        # Return to job offer list
-        return render(request, 'WelcomeLiteApp/index.html', {
-            'error_message': 'Job offer does not exist.'
-        })
+        # Return to job offer list with error message
+        job_offer_list = get_list_or_404(JobOffer)
+        context = { 
+            'job_offer_list': job_offer_list,
+            'error_message': 'That job offer does not exist.'
+            }
+        return render(request, 'WelcomeLiteApp/index.html', context)
     else:
-        candiate_name = str(job_offer)
+        # Return to job offer list with success message
+        candidate_name = str(job_offer)
+        job_offer_list = get_list_or_404(JobOffer)
+        context = { 
+            'job_offer_list': job_offer_list,
+            'success_message': f"Successfully deleted {candidate_name}'s offer"
+        }
         job_offer.delete()
-        return redirect('welcome:index')
+        return render(request, 'WelcomeLiteApp/index.html', context)

@@ -17,6 +17,16 @@
             {{ form.offer_amount|as_crispy_field }}
         </div>
     </div>
-    <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Submit</button>
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="far fa-save"></i> Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'welcome:index' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back to List
+            </a>
+        </div>
+    </div>
+    
 </form>
 {% endblock content %}
