@@ -6,14 +6,17 @@
 
 {% if job_offer_list %}
 <div>
-    <table>
-        <tr>
-            <th>Candidate's First Name</th>
-            <th>Candidate's Last Name</th>
-            <th>Candidate's Email</th>
-            <th>Job Title</th>
-            <th>Offer Amount</th>
-        </tr>
+    <table class="table">
+        <thead class="thead-dark border-bottom font-weight-bold">
+            <tr>
+                <th>Candidate's First Name</th>
+                <th>Candidate's Last Name</th>
+                <th>Candidate's Email</th>
+                <th>Job Title</th>
+                <th>Offer Amount</th>
+                <th colspan="2"><a href="{% url 'welcome:add' %}" class="btn btn-outline-success"><i class="fas fa-plus"></i> Create</a></th>
+            </tr>
+        </thead>
         
     {% for job_offer in job_offer_list %}
         <tr>
@@ -22,7 +25,7 @@
             <td>{{ job_offer.candidate_email }}</td>
             <td>{{ job_offer.job_title }}</td>
             <td>{{ job_offer.offer_amount }}</td>
-            <td><span><a href="{% url 'welcome:edit' job_offer.id %}">Edit</a></span></td>
+            <td><a href="{% url 'welcome:edit' job_offer.id %}" class="btn text-secondary px-0"><i class="far fa-edit fa-lg"></i></a></td>
             <td><span><a href="{% url 'welcome:delete' job_offer.id %}">Delete</a></span></td>
         </tr>
         
@@ -32,5 +35,4 @@
 {% else %}
 <p>No job offers available</p>
 {% endif %}
-<div><a href="{% url 'welcome:add' %}">Create Offer</a></div>
 {% endblock content %}

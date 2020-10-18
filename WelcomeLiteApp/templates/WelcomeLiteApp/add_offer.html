@@ -1,12 +1,22 @@
 {% extends 'WelcomeLiteApp/base.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 <h2>Create Offer</h2>
-<p>We will show Django form to implement CRUD operations</p>
-<form method="post">
+<h5>Form to Add/Edit Job Offers</h5>
+<form action="", method="POST" autocomplete="off">
     {% csrf_token %}
-
-    <button type="submit">Create</button>
+    {{ form.candidate_first_name|as_crispy_field }}
+    {{ form.candidate_last_name|as_crispy_field }}
+    {{ form.candidate_email|as_crispy_field }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ form.job_title|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+            {{ form.offer_amount|as_crispy_field }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Submit</button>
 </form>
 {% endblock content %}
