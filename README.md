@@ -47,4 +47,5 @@ Other tests for following endpoints could include, but are not limited to:
 ```
 
 Author: Harold Fich
+
 License: MIT
