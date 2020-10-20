@@ -8,10 +8,12 @@ After cloning repo, to Run:
 `make build`
 `make compose-start`
 
-*Note* `JobOffer`s and `JobTitle`s are related and there has to be at least 1 `JobTitle` 
-in order to create a `JobOffer`. So after building and starting the app,
+*Note* 
+- `JobOffer`s and `JobTitle`s are related and there has to be at least 1 `JobTitle` 
+in order to create a `JobOffer`. 
+- So after building and starting the app,
 run `make compose-manage-py cmd="createsuperuser"`
-After creating a super user, you can login to `/admin` path and add records into `JobTitle`
+- After creating a super user, you can login to `/admin` path and add records into `JobTitle`
 table, while will auto-populate in the create job offer form.
 
 *Testing*
