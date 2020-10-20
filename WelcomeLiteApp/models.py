@@ -11,7 +11,7 @@ class JobOffer(models.Model):
     candidate_last_name = models.CharField(max_length=64)
     candidate_email = models.EmailField(max_length=256)
     job_title = models.ForeignKey(JobTitle, on_delete=models.CASCADE)
-    offer_amount = models.PositiveIntegerField(default=0)
+    offer_amount = models.PositiveBigIntegerField(default=0)
 
     def __str__(self):
         return self.candidate_first_name + ' ' + self.candidate_last_name

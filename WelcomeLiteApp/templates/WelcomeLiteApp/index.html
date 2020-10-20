@@ -35,7 +35,7 @@
                 <td>{{ job_offer.candidate_last_name }}</td>
                 <td>{{ job_offer.candidate_email }}</td>
                 <td>{{ job_offer.job_title }}</td>
-                <td>{{ job_offer.offer_amount }}</td>
+                <td>${{ job_offer.offer_amount }}</td>
                 <td>
                     <a href="{% url 'welcome:edit' job_offer.id %}" class="btn text-secondary px-0"><i class="far fa-edit fa-lg"></i>
                     </a>
@@ -54,6 +54,8 @@
 </div>
 <!-- Else if no Job Offers available -->
 {% else %}
-<p>No job offers available</p>
+<div class="alert alert-danger" role="alert">
+    No job offers available
+</div>
 {% endif %}
 {% endblock content %}

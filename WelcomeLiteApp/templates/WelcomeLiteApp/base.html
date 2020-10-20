@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'welcome:index' %}">WelcomeLite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'welcome:index' %}">Job Offer List<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <a href="{% url 'welcome:add' %}" class="btn btn-outline-success"><i class="fas fa-plus"></i> Create</a>
+        </div>
+      </nav>
     <!-- Main App Container -->
     <div class="container">
         <div class="col-md-10 offset-md-1 mt-5">
