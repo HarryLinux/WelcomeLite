@@ -14,7 +14,7 @@ in order to create a `JobOffer`.
 - So after building and starting the app,
 run `make compose-manage-py cmd="createsuperuser"`
 - After creating a super user, you can login to `/admin` path and add records into `JobTitle`
-table, while will auto-populate in the create job offer form.
+table, which will auto-populate in the create job offer form.
 
 *Testing*
 ```
