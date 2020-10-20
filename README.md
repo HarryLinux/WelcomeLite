@@ -5,6 +5,8 @@ Docker
 Bootstrap
 
 After cloning repo, to Run:
+- `make compose-manage-py cmd="makemigrations"`
+- `make compose-manage-py cmd="migrate"`
 - `make build`
 - `make compose-start`
 
